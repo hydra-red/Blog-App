@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import Layout from "./components/Layout.jsx";
+import Layout from "./components/main/Layout.jsx";
 import {
   AuthorPosts,
   Authors,
