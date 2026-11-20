@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 const Footer = () => {
   return (
     <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-      <nav className="grid grid-flow-col gap-4">
+      <nav className="grid md:grid-flow-col md:gap-4">
         <NavLink
           to={"/posts/categories/agriculture"}
           className={({ isActive }) =>

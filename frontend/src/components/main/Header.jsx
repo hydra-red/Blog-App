@@ -5,7 +5,7 @@ const Header = () => {
   const id = null;
   return (
     <header className="min-w-screen sticky top-0 left-0 z-50 navbar bg-base-100 shadow-sm">
-      <Link to={"/"} className="flex-1 mx-10">
+      <Link to={"/"} className="flex-1 pl-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="82"
@@ -34,14 +34,14 @@ const Header = () => {
           </g>
         </svg>
       </Link>
-      <div className="flex flex-1 mx-10 justify-center">
-        <ul className="nav-link flex w-1/2 justify-between">
+      <div className="flex flex-1 justify-center">
+        <ul className="nav-link flex w-3/4 justify-evenly">
           <li>
             {/* Don't have the id yet */}
             <NavLink
               to={`/profile/${id}`}
               className={({ isActive }) =>
-                `hover:text-primary ${isActive ? "text-primary" : "text-black"}`
+                `link link-hover ${isActive ? "text-primary" : "text-black"}`
               }
             >
               Hello World
@@ -52,7 +52,7 @@ const Header = () => {
             <NavLink
               to={"/create"}
               className={({ isActive }) =>
-                `hover:text-primary ${isActive ? "text-primary" : "text-black"}`
+                `link link-hover ${isActive ? "text-primary" : "text-black"}`
               }
             >
               Create Post
@@ -62,7 +62,7 @@ const Header = () => {
             <NavLink
               to={"/authors"}
               className={({ isActive }) =>
-                `hover:text-primary ${isActive ? "text-primary" : "text-black"}`
+                `link link-hover ${isActive ? "text-primary" : "text-black"}`
               }
             >
               Authors
@@ -72,7 +72,7 @@ const Header = () => {
             <NavLink
               to={"/Logout"}
               className={({ isActive }) =>
-                `hover:text-primary ${isActive ? "text-primary" : "text-black"}`
+                `link link-hover ${isActive ? "text-primary" : "text-black"}`
               }
             >
               Logout
