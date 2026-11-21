@@ -1,11 +1,21 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router";
-import { VscChromeClose } from "react-icons/vsc";
+import { VscChromeClose, VscMenu } from "react-icons/vsc";
 
 const Header = () => {
   const id = null;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = [
+    { to: `/profile/${id}`, label: "Hello World" },
+    { to: "/create", label: "Create Post" },
+    { to: "/authors", label: "Authors" },
+    { to: "/logout", label: "Logout" },
+  ];
+
   return (
-    <header className="min-w-screen sticky top-0 left-0 z-50 navbar bg-base-100 shadow-sm">
-      <Link to={"/"} className="flex-1 pl-10">
+    <header className="sticky top-0 z-50 w-full bg-base-100 shadow-sm">
+      <div className="navbar mx-auto min-h-16 max-w-7xl flex-wrap px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex-1">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="82"
@@ -33,55 +43,36 @@ const Header = () => {
             />
           </g>
         </svg>
-      </Link>
-      <div className="flex flex-1 justify-center">
-        <ul className="nav-link flex w-3/4 justify-evenly">
-          <li>
-            {/* Don't have the id yet */}
-            <NavLink
-              to={`/profile/${id}`}
-              className={({ isActive }) =>
-                `link link-hover ${isActive ? "text-primary" : "text-black"}`
-              }
-            >
-              Hello World
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to={"/create"}
-              className={({ isActive }) =>
-                `link link-hover ${isActive ? "text-primary" : "text-black"}`
-              }
-            >
-              Create Post
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/authors"}
-              className={({ isActive }) =>
-                `link link-hover ${isActive ? "text-primary" : "text-black"}`
-              }
-            >
-              Authors
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/Logout"}
-              className={({ isActive }) =>
-                `link link-hover ${isActive ? "text-primary" : "text-black"}`
-              }
-            >
-              Logout
-            </NavLink>
-          </li>
-        </ul>
-        <button className="hidden">
-          <VscChromeClose />
+        </Link>
+        <button
+          className="btn btn-ghost btn-square md:hidden"
+          onClick={() => setMenuOpen((open) => !open)}
+          type="button"
+        >
+          {menuOpen ? <VscChromeClose /> : <VscMenu />}
         </button>
+        <nav
+          className={`${menuOpen ? "block" : "hidden"} w-full border-t border-base-200 bg-base-100 p-4 md:ml-auto md:block md:w-auto md:border-0 md:bg-transparent md:p-0`}
+          id="primary-navigation"
+        >
+          <ul className="flex flex-col gap-1 md:flex-row md:items-center md:gap-2">
+            {navItems.map(({ to, label }) => (
+              <li key={to}>
+                <NavLink
+                  className={({ isActive }) =>
+                    `block rounded-lg px-3 py-2 text-sm font-medium hover:bg-base-200 ${
+                      isActive ? "text-primary" : "text-base-content"
+                    }`
+                  }
+                  onClick={() => setMenuOpen(false)}
+                  to={to}
+                >
+                  {label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </header>
   );

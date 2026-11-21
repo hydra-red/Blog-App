@@ -1,10 +1,9 @@
-import React from 'react'
+import Posts from "../components/posts/Posts.jsx"
 
 const Home = () => {
   return (
-    <div>Home
-      <img src="" alt="" />
-      
+    <div>
+      <Posts />
     </div>
   )
 }
