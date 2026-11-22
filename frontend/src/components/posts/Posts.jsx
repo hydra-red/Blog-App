@@ -3,7 +3,7 @@ import PostCard from "./PostCard.jsx";
 import { DUMMY_POSTS } from "./postsData.js";
 
 export default function Posts() {
-  if (DUMMY_POSTS.length === 0) {
+  if (DUMMY_POSTS.length <= 0) {
     return (
       <section className="mx-auto my-12 w-full max-w-7xl px-4 text-center">
         <h1 className="text-2xl font-bold sm:text-4xl">No posts found</h1>
