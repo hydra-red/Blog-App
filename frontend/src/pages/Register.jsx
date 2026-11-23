@@ -41,10 +41,10 @@ const Register = () => {
 }
 
   function handleChange(e) {
+
     setUserData((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
-  }
 
   return (
     <section className="mx-auto w-full max-w-xl px-4 py-12 text-center">
