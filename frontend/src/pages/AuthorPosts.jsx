@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PostCard from "../components/posts/PostCard";
 import { DUMMY_POSTS } from "../components/posts/postsData.js";
-import { useParams } from "react-router";
+import { useParams, Link } from "react-router";
 
 const AuthorPosts = () => {
   const { id } = useParams();
