@@ -40,4 +40,74 @@ const Register = () => {
   )
 }
 
-export default Register
+  function handleChange(e) {
+    setUserData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  }
+
+  return (
+    <section className="mx-auto w-full max-w-xl px-4 py-12 text-center">
+      <div className="mx-auto p-4">
+        <h1 className="text-2xl font-bold">Sign Up</h1>
+        <form className="fieldset bg-base-200 border-base-300 rounded-box border my-2 p-4">
+          <p className="bg-red-500 rounded-md p-2 font-bold hidden">
+            Error Message
+          </p>
+          <label className="label" htmlFor="name">
+            Full Name
+          </label>
+          <input
+            type="text"
+            className="input min-w-full outline-0"
+            placeholder="Full Name"
+            name="name"
+            value={userData.name}
+            onChange={handleChange}
+          />
+
+          <label className="label" htmlFor="email">
+            Email
+          </label>
+          <input
+            type="email"
+            className="input min-w-full outline-0"
+            placeholder="Email"
+            name="email"
+            value={userData.email}
+            onChange={handleChange}
+          />
+
+          <label className="label" htmlFor="password">
+            Password
+          </label>
+          <input
+            type="password"
+            className="input min-w-full outline-0"
+            placeholder="Password"
+            name="password"
+            value={userData.password}
+            onChange={handleChange}
+          />
+
+          <label className="label" htmlFor="confirmPassword">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            className="input min-w-full outline-0"
+            placeholder="Confirm Password"
+            name="confirmPassword"
+            value={userData.confirmPassword}
+            onChange={handleChange}
+          />
+
+          <button className="btn btn-neutral mx-auto mt-4">Register</button>
+          <p>Already a User? <Link to={"/login"} className="text-blue-500 link">Sign In</Link></p>
+        </form>
+      </div>
+    </section>
+  );
+};
+
+export default Register;

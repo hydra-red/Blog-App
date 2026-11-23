@@ -1,4 +1,6 @@
+const DUMMY_USER = {
 
+}
 
 const Authors = () => {
   return (
